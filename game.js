@@ -89,8 +89,6 @@ function nextSequence(){
 
 function gameOver(){
 
-
-
   userClickedPattern=[];
   gamePattern=[];
   level=0;
@@ -99,7 +97,7 @@ function gameOver(){
   var gameOverSound = new Audio("sounds/wrong.mp3");
   gameOverSound.play();
 
-$("body").addClass("game-over");
+  $("body").addClass("game-over");
 
   setTimeout(function(){
   $("body").removeClass("game-over");
