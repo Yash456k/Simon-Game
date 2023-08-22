@@ -3,13 +3,13 @@ var gamePattern = [];
 var userClickedPattern = [];
 var gameRunning = false;
 var level = 0;
+var highscore=0;
 
 $(document).on("keydown touchstart",function(event){
   event.preventDefault();
 
 if(!gameRunning)
 {
-
   $("#level-title").text("Level " + level);
     nextSequence();
     gameRunning = true;
@@ -42,6 +42,10 @@ $(".btn").on("click touchstart",function(event) {
       {
         setTimeout(function(){
           nextSequence();
+          if(level > highscore)
+          {highscore = level-1;
+          $("h2").text("High-score: " + highscore);
+          }
         },1000)
       }
     }
@@ -72,6 +76,9 @@ function nextSequence(){
             playSound(gamePattern[index]);
         }, (i + 1) * 300); // Note the change in the delay calculation
     })(i);
+
+
+    
 }
 
 
@@ -81,6 +88,9 @@ function nextSequence(){
 
 
 function gameOver(){
+
+  setTimeout(function(key){
+    key.preventDefault();
   userClickedPattern=[];
   gamePattern=[];
   level=0;
@@ -94,6 +104,8 @@ $("body").addClass("game-over");
   setTimeout(function(){
   $("body").removeClass("game-over");
   },400);
+
+},1000)
 
 }
 
