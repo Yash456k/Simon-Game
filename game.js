@@ -89,8 +89,8 @@ function nextSequence(){
 
 function gameOver(){
 
-  setTimeout(function(key){
-    key.preventDefault();
+
+
   userClickedPattern=[];
   gamePattern=[];
   level=0;
@@ -104,8 +104,6 @@ $("body").addClass("game-over");
   setTimeout(function(){
   $("body").removeClass("game-over");
   },400);
-
-},1000)
 
 }
 
