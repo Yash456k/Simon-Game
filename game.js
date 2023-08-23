@@ -102,11 +102,8 @@ function gameOver(){
   $("body").removeClass("game-over");
   },400);
 
-setTimeout(function(){
  gameRunning=false;
- 
 
-},700);
 
 
 
