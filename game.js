@@ -96,7 +96,7 @@ function gameOver(){
   userClickedPattern=[];
   gamePattern=[];
   level=0;
-  $("#level-title").text("Game Over! Press Any Key to Start");
+  $("#level-title").text("Game Over! Press Any Key/Background to Start");
   var gameOverSound = new Audio("sounds/wrong.mp3");
   gameOverSound.play();
 
