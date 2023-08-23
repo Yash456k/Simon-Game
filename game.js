@@ -4,16 +4,17 @@ var userClickedPattern = [];
 var gameRunning = false;
 var level = 0;
 var highscore=0;
+var gameClick = true;
 
 $(document).on("keydown touchstart",function(event){
   event.preventDefault();
 
-if(!gameRunning)
+if(!gameRunning && gameClick)
 {
   $("#level-title").text("Level " + level);
     nextSequence();
     gameRunning = true;
-
+    gameClick = false;
 }
 
 });
@@ -89,10 +90,12 @@ function nextSequence(){
 
 function gameOver(){
 
+
+  gameRunning=false;
+
   userClickedPattern=[];
   gamePattern=[];
   level=0;
-  gameRunning=false;
   $("#level-title").text("Game Over! Press Any Key to Start");
   var gameOverSound = new Audio("sounds/wrong.mp3");
   gameOverSound.play();
@@ -102,6 +105,10 @@ function gameOver(){
   setTimeout(function(){
   $("body").removeClass("game-over");
   },400);
+
+  setTimeout(function(){
+    gameClick = true;
+  },2000)
 
 }
 
