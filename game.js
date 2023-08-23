@@ -92,6 +92,7 @@ function gameOver(){
   userClickedPattern=[];
   gamePattern=[];
   level=0;
+  gameRunning=false;
   $("#level-title").text("Game Over! Press Any Key to Start");
   var gameOverSound = new Audio("sounds/wrong.mp3");
   gameOverSound.play();
@@ -102,8 +103,7 @@ function gameOver(){
   $("body").removeClass("game-over");
   },400);
 
- gameRunning=false;
-
+}
 
 
 
