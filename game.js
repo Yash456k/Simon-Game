@@ -108,7 +108,7 @@ function gameOver(){
 
   setTimeout(function(){
     gameClick = true;
-  },1100)
+  },2000)
 
 }
 
